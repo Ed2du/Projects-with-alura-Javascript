@@ -1,0 +1,229 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --principal-font: 'Unbounded', cursive;
+    --color-primary: #123456;
+    --color-secondary: #FFF;
+    --azul-royal: #144480;
+    --fundo-card-timer: rgba(20, 68, 128, 0.30);
+    --lils: #B872FF;
+    --linear-botes: linear-gradient(180deg, #B872FF 0%, #144480 100%);
+}
+
+[data-contexto='foco'] {
+
+    --main-bg-color: linear-gradient(180deg, #8B1FF8 0%, #041832 48.44%, #01080E 100%);
+}
+
+[data-contexto="descanso-curto"] {
+    --main-bg-color: linear-gradient(180deg, #0F725C 0%, #041832 48.44%, #01080E 100%);
+}
+
+[data-contexto="descanso-longo"] {
+    --main-bg-color: linear-gradient(180deg, #1875E9 0%, #041832 48.44%, #01080E 100%);
+}
+
+html {
+    background: var(--main-bg-color); 
+    min-height: 100vh;
+}
+
+
+body {
+    min-height: 100vh;
+    background-image: url('./imagens/pattern.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo {
+    text-align: center;
+    padding: 2em 0 1em 0;
+}
+
+.text {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    margin: 0 10em;
+    text-align: center;
+}
+
+.text-content {
+    font-family: var(--principal-font);
+    font-size: 3.3rem;
+    line-height: 150%;
+    font-weight: 200;
+    color: var(--color-secondary);
+}
+
+.image-content {
+    text-align: center;
+}
+
+.motherboard {
+    margin: 2em 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.principal-motherboard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 40em;
+    padding: 1em 1.5em 2em 1.5em;
+    border-radius: 15px;
+    border: 3px solid var(--azul-royal);
+    background: var(--fundo-card-timer);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.btn {
+    padding: 1em 0.5em;
+    font-size: 1rem;
+    color: var(--color-secondary);
+    background: transparent;
+    border: transparent;
+    font-family: var(--principal-font);
+    font-weight: 400;
+    cursor: pointer;
+
+}
+
+.btn:active, .btn:focus {
+    background: var(--azul-royal);
+    border-radius: 15px;
+}
+
+#checkbox-input {
+    display: none;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 2em 0;
+}
+
+.checkbox {
+    width: 60px;
+    margin: 0 0.8em 0 0;
+    height: 30px;
+    background: rgb(207, 207, 207);
+    border-radius: 15px;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.checkbox-button {
+    transform: translateX(-25%);
+    width: 30px;
+    height: 30px;
+    border-radius: 60px;
+    background: var(--color-secondary);
+    transition: transform 0.5s ease;
+}
+
+#checkbox-input:checked + label > .checkbox > .checkbox-button {
+    transform: translateX(80%);
+}
+
+#checkbox-input:checked + label > .checkbox {
+    background: rgb(89, 161, 255);
+}
+
+.checkbox-container p {
+    font-size: 1rem;
+    color: var(--color-secondary);
+    font-family: var(--principal-font);
+    font-weight: 200;
+}
+
+.button__confirm-choose {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--linear-botes);
+    padding: 0.4em 2.5em;
+    border: none;
+    border-radius: 50px;
+    color: var(--color-secondary);
+    font-family: var(--principal-font);
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    margin: 8em 0 2em 0;
+    font-size: 0.875rem;
+    color: rgba(201, 199, 199, 0.938);
+    font-family: var(--principal-font);
+}
+
+@media screen and (max-width: 1024px) {
+    .principal-motherboard {
+        width: 30em;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-content {
+        margin: 1em 0;
+    }
+}
+
+#Span-icon {
+    padding: 0 0.8em 0 0;
+}
+
+.time {
+    display: flex;
+    color: var(--color-secondary);
+    padding: 0 0 0 0;
+    font-family: var(--principal-font);
+    font-size: 5.2rem;
+}
+
+@media screen and (max-width: 320px) {
+    .text-content p {
+        font-size: 2.2rem;
+        line-height: 130%;
+    }
+
+    .principal-img {
+        width: 18em;
+    }
+
+    .principal-motherboard {
+        width: 19.5em;
+        
+    }
+
+    .buttons {
+        gap: 10px;
+        font-size: 0.845rem;
+    }
+
+    .footer {
+        text-align: center;
+    }
+}
+

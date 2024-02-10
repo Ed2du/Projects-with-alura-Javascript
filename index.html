@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-contexto="foco">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Prata&amp;family=Unbounded:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <title>DOM test</title>
+</head>
+<body>
+    <header class="logo">
+        <img src="./imagens/logo.png" alt="Logo da Fokus">
+    </header>
+    <section class="text">
+        <div class="text-content">
+            <p class="principal-text">
+                Otimize sua produtividade, <strong>mergulhe no que importa.</strong>
+            </p>
+        </div>
+        <div class="image-content">
+            <img src="./imagens/foco.png" alt="FOCOOOO" class="principal-img">
+        </div>
+    </section>
+    <div class="motherboard">
+        <section class="principal-motherboard">
+            <div class="buttons">
+                <button data-contexto="foco"
+                class="btn button__foco-edition">
+                    Foco
+                </button>
+                <button data-contexto="short"
+                class="btn button__short-edition">
+                    Descanso curto
+                </button>
+                <button data-contexto="long"
+                class="btn button__long-edition">
+                    Descanso longo
+                </button>
+            </div>
+            <div class="time">
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" name="" id="checkbox-input">
+                <label for="checkbox-input">
+                    <div class="checkbox">
+                        <div class="checkbox-button"></div>
+                    </div>
+                </label>
+                <p>Música</p>
+            </div>
+            <div class="button-confirm">
+                <button class="button__confirm-choose">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" id="Span-icon">
+                        <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+                      </svg>
+                    Começar
+                </button>
+            </div>
+        </section>      
+    </div>
+    <footer class="footer">
+        <p>
+            Projeto fictício e sem fins comerciais. Imagens geradas por IA no Adobe Firefly.Desenvolvido por Alura.
+        </p>
+    </footer>   
+</body>
+</html>
