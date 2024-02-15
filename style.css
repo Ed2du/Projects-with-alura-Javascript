@@ -61,6 +61,10 @@ body {
     color: var(--color-secondary);
 }
 
+.principal-text {
+    animation: brilho 2s linear infinite alternate;
+}
+
 .image-content {
     text-align: center;
 }
@@ -70,6 +74,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 .principal-motherboard {
@@ -176,18 +181,51 @@ body {
     font-family: var(--principal-font);
 }
 
-@media screen and (max-width: 1024px) {
-    .principal-motherboard {
-        width: 30em;
-    }
-    .text {
-        display: flex;
-        flex-direction: column;
-    }
+.work-space {
+    margin-top: 3em;
+    font-family: var(--principal-font);
+}
 
-    .text-content {
-        margin: 1em 0;
-    }
+.work-theme {
+    color: var(--color-secondary);
+    display: flex;
+    justify-content: space-between;
+    gap: 4em;
+    align-items: center;
+    margin-right: 4em;
+}
+
+.work-theme p {
+    margin-right: 1.5em;
+    font-size: 0.875rem;
+    font-weight: 200;
+}
+
+.work-theme h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.line {
+    margin-top: 3em;
+    height: 2px;
+    width: 100%;
+    background-color: var(--azul-royal);
+}
+
+.title-tasks {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.title-tasks p {
+    color: var(--color-secondary);
+    font-size: 1.2rem;
+}
+
+.bi-exclamation-circle {
+    color: #B872FF;
 }
 
 #Span-icon {
@@ -202,28 +240,154 @@ body {
     font-size: 5.2rem;
 }
 
-@media screen and (max-width: 320px) {
-    .text-content p {
-        font-size: 2.2rem;
-        line-height: 130%;
+.btn_add-task {
+    display: flex;
+    width: 100%;
+}
+
+.btn_add span {
+    vertical-align: middle;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin: 0 1em;
+}
+
+.btn_add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 100%;
+    background: transparent;
+    border: 2px solid #B872FF;
+    font-family: var(--principal-font);
+    border-radius: 25px;
+    color: #B872FF;
+    cursor: pointer;
+}
+
+.btn_add:hover {
+    color: black;
+    background-color: #B872FF;
+}
+
+.form-addtask {
+    background: #FFFFFF80;
+    padding: 1em;
+    margin: 0.9em 0;
+    border-radius: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.submit-form {
+    display: none;
+}
+
+.form-inputs textarea {
+    background: #98A0A8;
+    border: none;
+    padding: 1em;
+    border-radius: 15px;
+    outline: none;
+}
+
+.form-inputs textarea::placeholder {
+    padding: 4em 0 0 3em;
+    font-family: var(--principal-font);
+    font-size: 0.875rem;
+}
+
+.title-add {
+    margin: 1em 0;
+    font-size: 1.2rem;
+}
+
+.seg_input-forms {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+label {
+    justify-content: center;
+}
+
+.btn-form {
+    background: none;
+    border: none;
+    color: black;
+    font-family: var(--principal-font);
+    padding: 1em 0;
+    margin: 0 1em 0 1em;
+    display: flex;
+}
+
+.btn-form svg {
+    margin-right: 0.8em;
+}
+
+.cancel svg {
+    transform: translateY(-12%);
+}
+
+.cancel span {
+    transform: translateY(10%);
+}
+
+.save {
+    background: black;
+    color: white;
+    padding: 1em 1em;
+    align-items: center;
+    border-radius: 30px;
+}
+
+@media screen and (max-width: 425px) {
+    .logo img {
+        transform: translateX(30%);
+    }
+
+    .text {
+        transform: translateX(20%);
     }
 
     .principal-img {
-        width: 18em;
+        width: 20em;
+        height: 20em;
     }
 
-    .principal-motherboard {
-        width: 19.5em;
-        
-    }
-
-    .buttons {
-        gap: 10px;
-        font-size: 0.845rem;
-    }
-
-    .footer {
-        text-align: center;
+    .principal-text {
+        line-height: 110%;
+        font-size: 2rem;
     }
 }
 
+@media screen and (max-width: 1024px) {
+    .principal-motherboard {
+        width: 30em;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .text-content {
+        margin: 1em 0;
+    }
+}
+
+@keyframes brilho {
+        0% {
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        100% {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        }
+}
