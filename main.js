@@ -15,10 +15,10 @@ const StartPauseBtn = document.querySelector('.button__confirm-choose');
 const Startmusic = new Audio ('./sons/play.wav');
 const Pausemusic = new Audio ('./sons/pause.mp3');
 const BEEP = new Audio ('./sons/beep.mp3');
-let SecTime = 0
+let SecTime = 0;
 let IntervalID = null;
 
-let Timer = document.querySelector('.time')
+let Timer = document.querySelector('.time');
 
 ToggleCheckBox.addEventListener('change', () => {
     if (music.paused) {
@@ -39,53 +39,61 @@ ShortBtn.addEventListener('click', () => {
 
 LongBtn.addEventListener('click', () => {
     MudarContexto('descanso-longo');
-})
+});
 
 function MudarContexto(contexto) {
     html.setAttribute('data-contexto', contexto);
     banner.setAttribute('src', `./imagens/${contexto}.png`);
-    
-    switch(contexto) {
+    switch (contexto) {
         case 'foco':
-            SecTime = 1500;
-            PrincTitle.innerHTML = `Otimize sua produtividade, <strong>mergulhe no que importa.</strong>`;
-            break;
+            SecTime = 10;
+            PrincTitle.innerHTML = `Otimize sua produtividade <strong>mergulhe no que importa</strong>`;
+            break
         case 'descanso-curto':
             SecTime = 300;
-            PrincTitle.innerHTML = `Que tal dar uma respirada? <strong>Faça uma pausa curta!</strong>`;
-            break;
+            PrincTitle.innerHTML = `Que tal dar uma respirada? <strong>Faça uma pausa curta!</strong>`
+            break
         case 'descanso-longo':
             SecTime = 900;
-            PrincTitle.innerHTML = `Hora de voltar à superficie. <strong>Faça uma pausa longa.</strong>`;
+            PrincTitle.innerHTML = `Hora de voltar a superficie.<strong>Faça uma pausa longa.</strong>`
+            break
+        default:
+            break;
     }
     Temporizador();
 }
 
 const ContagemRegressiva = () => {
     if (SecTime <= 0) {
+        SecTime = SecTime;
+        alert('Contagem Finalizada');
+        const focoativo = html.getAttribute('data-contexto') == 'foco';
+        if (focoativo) {
+            const evento = new CustomEvent('focoFinalizado');
+            document.dispatchEvent(evento)
+        }
         reset();
-        alert('Contagem finalizada');
         return;
+
     }
     else {
         SecTime -= 1;
         Temporizador();
-        if (SecTime <= 5) {
+
+        if (SecTime <= 6 ) {
             BEEP.play();
         }
     }
 }
 
-function Contagem() {
-    Temporizador()
+function StartOrPause () {
     if (IntervalID) {
-        Pausemusic.play();
         reset();
+        Pausemusic.play();
         StartPauseBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16" id="Span-icon">
         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
-        </svg>
+      </svg>
         Continuar`
-        return;
     }
     else {
         IntervalID = setInterval(ContagemRegressiva, 1000);
@@ -103,11 +111,9 @@ function reset() {
 }
 
 function Temporizador() {
-    const tempo = new Date(SecTime * 1000);
-    const tempoFatorado = (tempo.toLocaleTimeString('pt-BR', {minute: '2-digit', second: '2-digit'}));
-    Timer.innerHTML = tempoFatorado;
+    const tempo = new Date (SecTime * 1000);
+    const TempoRenderizado = tempo.toLocaleTimeString('pt-BR', {minute: '2-digit', second: '2-digit'});
+    Timer.innerHTML = TempoRenderizado;
 }
 
-StartPauseBtn.addEventListener('click', Contagem);
-
-Temporizador();
+StartPauseBtn.addEventListener('click', StartOrPause);
