@@ -53,22 +53,28 @@ function CriarTarefa (tarefa) {
     img.classList.add('image-edit-button');
     img.setAttribute('src', './imagens/edit.png');
     
-    img.onclick = () => {
-        const Editando = prompt('Editando Tarefa...');
-        if (Editando) {
-            p.textContent = Editando;
-            tarefa.descricao = Editando;
-            AtualizarTarefa();
+    img.onclick = () => {        
+        if (tarefa.completo) {
+            alert('Tarefa Concluida! não pode mais editar');
         }
+        else {
+            const Editando = prompt('Editando Tarefa...');
+            if (Editando) {
+                p.textContent = Editando;
+                tarefa.descricao = Editando;
+                AtualizarTarefa();
+            }
+        }
+ 
     }
 
     if (tarefa.completo) {
-        li.classList.remove('add-list-box-active');
         li.classList.add('add-list-box-complete');
-        button.setAttribute('disabled', 'disabled');
+        img.setAttribute('disabled', 'disabled');
     }
     else {
         li.onclick = () => {
+            debugger
             document.querySelectorAll('add-list-box-active')
                 .forEach(elemento => {
                     elemento.classList.remove('add-list-box-active');
@@ -77,7 +83,7 @@ function CriarTarefa (tarefa) {
                 ActiveTaskParagraph.textContent = '';
                 tarefaSelecionada = null;
                 liTarefaSelecionada = null;
-                return
+                return;
             }
             tarefaSelecionada = tarefa
             liTarefaSelecionada = li;
