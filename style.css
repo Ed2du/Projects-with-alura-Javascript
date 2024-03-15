@@ -193,6 +193,7 @@ body {
     gap: 4em;
     align-items: center;
     margin-right: 4em;
+
 }
 
 .work-theme p {
@@ -243,6 +244,16 @@ body {
 .btn_add-task {
     display: flex;
     width: 100%;
+}
+
+.add-list-box-active {
+    border: 2px solid white;
+    animation: brilho 2s linear infinite alternate;
+}
+
+.add-list-box.add-list-box-complete {
+    background-color: #00F4BF66;
+    fill: #00F4BF66;
 }
 
 .btn_add span {
@@ -346,6 +357,39 @@ label {
     align-items: center;
     border-radius: 30px;
 }
+
+.add-list-box {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #FFFFFF80;
+    padding: 1.2em 1em;
+    border-radius: 15px;
+    margin: 1em 0;
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
+}
+
+.task-name {
+    margin-left: 1em;
+    font-size: 1.125rem;
+}
+
+.edit-button {
+    background: transparent;
+    border: none;
+}
+
+.image-edit-btn {
+    width: 32px;
+    height: 32px;
+}
+
+
 
 @media screen and (max-width: 425px) {
     .logo img {
