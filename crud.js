@@ -21,9 +21,9 @@ Form.addEventListener('submit', (evento) => {
     listaTarefas.push(tarefa);
     const elementoLista = CriarTarefa(tarefa);
     ulTask.append(elementoLista);
-    AtualizarTarefa();
     Form.classList.add('hidden');
     textarea.textContent = '';
+    AtualizarTarefa();
 });
 
 function AtualizarTarefa() {
@@ -67,18 +67,20 @@ function CriarTarefa (tarefa) {
         }
  
     }
-
     if (tarefa.completo) {
+        li.classList.remove('add-list-box-active');
         li.classList.add('add-list-box-complete');
         img.setAttribute('disabled', 'disabled');
     }
     else {
         li.onclick = () => {
-            debugger
-            document.querySelectorAll('add-list-box-active')
+            document.querySelectorAll('.add-list-box-active')
                 .forEach(elemento => {
                     elemento.classList.remove('add-list-box-active');
                 });
+                if (tarefa.completo) {
+                    li.classList.remove('add-list-box-active');
+                }
             if (tarefaSelecionada == tarefa) {
                 ActiveTaskParagraph.textContent = '';
                 tarefaSelecionada = null;
@@ -113,6 +115,7 @@ document.addEventListener('focoFinalizado', () => {
     if (tarefaSelecionada && liTarefaSelecionada) {
         liTarefaSelecionada.classList.remove('.add-list-box-active');
         tarefaSelecionada.completo = true;
+        liTarefaSelecionada.classList.add('add-list-box-complete');
         AtualizarTarefa();
     }
 })
