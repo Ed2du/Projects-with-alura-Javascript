@@ -1,3 +1,5 @@
+const LimparTudo = document.querySelector('#btn_limpar-tudo');
+const LimparConcluidas = document.querySelector('#btn_limpar-concluidas');
 const Form = document.querySelector('.form-addtask');
 const btnAddTask = document.querySelector('.btn_add');
 const textarea = document.querySelector('#textarea-add');
@@ -70,6 +72,7 @@ function CriarTarefa (tarefa) {
     if (tarefa.completo) {
         li.classList.remove('add-list-box-active');
         li.classList.add('add-list-box-complete');
+        ActiveTaskParagraph.textContent = '';
         img.setAttribute('disabled', 'disabled');
     }
     else {
@@ -113,9 +116,34 @@ listaTarefas.forEach(tarefa => {
 
 document.addEventListener('focoFinalizado', () => {
     if (tarefaSelecionada && liTarefaSelecionada) {
-        liTarefaSelecionada.classList.remove('.add-list-box-active');
+        ActiveTaskParagraph.textContent = '';
+        liTarefaSelecionada.classList.remove('add-list-box-active');
         tarefaSelecionada.completo = true;
         liTarefaSelecionada.classList.add('add-list-box-complete');
         AtualizarTarefa();
     }
 })
+
+function SeletorChave (seletor) {
+    document.querySelectorAll(seletor).forEach(elemento => {
+        elemento.remove();
+    });
+}
+
+LimparConcluidas.onclick = () => {
+    const seletor = '.add-list-box-complete';
+    SeletorChave(seletor);
+
+    listaTarefas = listaTarefas.filter(tarefa => !tarefa.completo);
+    AtualizarTarefa();
+};
+
+LimparTudo.onclick = () => {
+    const seletor = '.add-list-box';
+    SeletorChave(seletor);
+
+    listaTarefas = [];
+    AtualizarTarefa();
+}
+
+//Finalmente terminei rsrsrs//
