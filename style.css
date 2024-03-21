@@ -389,7 +389,57 @@ label {
     height: 32px;
 }
 
+.button-tasks {
+  background: transparent;
+  border: none; 
+}
 
+.box-button-task {
+    display: none;
+}
+
+.button-tasks:active ~ .box-button-task {
+    display: block;
+}
+
+#Checkbox {
+    display: none;
+}
+
+.caixa-opt {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+    top: 100.1%;
+    right: 18%;
+    min-width: 24rem;
+    background: #1B293B;
+    padding: 1em 0.2em; 
+    border: 1px solid #144480;
+    border-radius: 5px;
+}
+
+.box-img {
+    margin: 0 1em 0 0;
+}
+
+.limpar {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-family: var(--principal-font);
+    font-size: 0.875rem;
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+#Checkbox:checked ~ .caixa-opt {
+    display: flex;
+}
 
 @media screen and (max-width: 425px) {
     .logo img {
