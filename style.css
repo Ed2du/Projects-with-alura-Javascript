@@ -441,7 +441,7 @@ label {
     display: flex;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 485px) {
     .logo img {
         transform: translateX(30%);
     }
@@ -454,10 +454,27 @@ label {
         width: 20em;
         height: 20em;
     }
-
+    
     .principal-text {
         line-height: 110%;
         font-size: 2rem;
+    }
+
+    .principal-motherboard {
+        padding: 1em 0;
+        width: 25em !important;
+    }
+    
+    .buttons {
+        gap: 10px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .pricipal-motherboard {
+        transform: translateX(100%);
+        padding: 1em 0;
+        width: 25em !important;
     }
 }
 
