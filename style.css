@@ -441,6 +441,13 @@ label {
     display: flex;
 }
 
+@media screen and (max-width: 732px) {
+    
+    .form-addtask textarea {
+        width: 90%;
+    }
+}
+
 @media screen and (max-width: 485px) {
     .logo img {
         transform: translateX(10%);
@@ -480,6 +487,7 @@ label {
         padding: 1em 0;
         width: 25em !important;
     }
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -494,6 +502,7 @@ label {
     .text-content {
         margin: 1em 0;
     }
+    
 }
 
 @keyframes brilho {
