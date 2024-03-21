@@ -46,7 +46,7 @@ function MudarContexto(contexto) {
     banner.setAttribute('src', `./imagens/${contexto}.png`);
     switch (contexto) {
         case 'foco':
-            SecTime = 10;
+            SecTime = 1500;
             PrincTitle.innerHTML = `Otimize sua produtividade <strong>mergulhe no que importa</strong>`;
             break
         case 'descanso-curto':
@@ -75,7 +75,7 @@ const ContagemRegressiva = () => {
         reset();
         return;
 
-    }
+    }   
     else {
         SecTime -= 1;
         Temporizador();
